@@ -1,9 +1,10 @@
-input ← ⟨0,2⟩⊸⊏¨•file.Lines ⊑ •args
+input ← •file.Lines ⊑ •args
 
-scoresA ← ⟨8‿"AY", 4‿"AX", 3‿"AZ", 5‿"BY", 1‿"BX", 9‿"BZ", 2‿"CY", 7‿"CX", 6‿"CZ"⟩
-scoresB ← ⟨4‿"AY", 3‿"AX", 8‿"AZ", 5‿"BY", 1‿"BX", 9‿"BZ", 6‿"CY", 2‿"CX", 7‿"CZ"⟩
+rounds ← ⟨"A X", "A Y", "A Z", "B X", "B Y", "B Z", "C X", "C Y", "C Z"⟩
+scoresA ← ⟨4, 8, 3, 1, 5, 9, 7, 2, 6⟩
+scoresB ← ⟨3, 4, 8, 1, 5, 9, 2, 6, 7⟩
 
-ApplyScore ← {(⊑1↑𝕩){𝕨×+´input∊⟨𝕩⟩}(⊑1↓𝕩)}
+Score ← { +´((rounds ⍋ 𝕨) - 1)⊏𝕩 }
 
-•Show +´ApplyScore¨scoresA
-•Show +´ApplyScore¨scoresB
+•Show input Score scoresA
+•Show input Score scoresB
